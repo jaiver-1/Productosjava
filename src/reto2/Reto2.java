@@ -1,10 +1,7 @@
-
 package reto2;
 import java.util.Scanner;
 
-
 public class Reto2 {
-
   private final Scanner scanner = new Scanner(System.in);
 
     /**
@@ -17,33 +14,37 @@ public class Reto2 {
 
     public static void  main(String[] args){
         Reto2 metodos = new Reto2();
-        
-        
         metodos.run();
-    
     }
     /**
     * método principal
     */
     public void run(){
-       BaseDatosProductos datos = new BaseDatosProductos();
-        
-        System.out.println("Ingresa Operación: ");
+        BaseDatosProductos datos = new BaseDatosProductos();
         
         String operacion = read();
-       
-        if (operacion == "AGREGAR") {
-            int codigo = 39;
-            String nombre = "Juan";
-            double precio = 20.34;
-            int inventario = 45;
-            
-            Producto _producto = new Producto(1,"Cafe",5000.0,25);
-            datos.Agregar(1, _producto);
+        String [] _producto = read().split(" ");
+        int codigo = Integer.parseInt(_producto[0]);
+
+        if (operacion.equals("AGREGAR")) {
+            String nombre = _producto[1];
+            double precio = Double.parseDouble(_producto[2]);
+            int inventario = Integer.parseInt(_producto[3]);
+            Producto producto = new Producto(codigo,nombre,precio,inventario);
+            datos.Agregar(codigo, producto);
         }
-        
-        System.out.println(datos.listaProductos);
-        
+        else if (operacion.equals("BORRAR")) {
+            datos.Eliminar(codigo);
+        }
+        else if (operacion.equals("ACTUALIZAR")) {
+            String nombre = _producto[1];
+            double precio = Double.parseDouble(_producto[2]);
+            int inventario = Integer.parseInt(_producto[3]);
+            Producto producto = new Producto(codigo,nombre,precio,inventario);
+            datos.Actualizar(producto);
+        }
+        else if (operacion.equals("GENERAR INFORME")) {
+            datos.GenerarInforme();
+        }
     }
-    
 }

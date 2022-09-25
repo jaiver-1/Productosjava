@@ -15,6 +15,29 @@ public class Producto {
     private String nombre;
     private double precio;
     private int inventario;
+     
+    public Producto(int codigo, String nombre, double precio, int inventario){
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.inventario = inventario;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public void setInventario(int inventario) {
+        this.inventario = inventario;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -31,23 +54,4 @@ public class Producto {
     public int getInventario() {
         return inventario;
     }
-    
-    
-    public Producto(int codigo, String nombre, double precio, int inventario){
-        
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.inventario = inventario;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
 }
